@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 1: Cultural Humility, Responsiveness & Sustainment</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --terra: #E38A5E;
+    --sand: #FDF5EE;
+    --sage: #72C2A9;
+    --deep: #2F714B;
+    --warm-white: #FAF5F0;
+    --clay: #D95A4D;
+    --mist: #E8F7F3;
+    --gold: #F2CE7E;
+    --ink: #2F714B;
+    --spring-yellow: #F2CE7E;
+    --spring-orange: #E38A5E;
+    --spring-red: #D95A4D;
+    --spring-teal: #72C2A9;
+    --spring-green: #529B4F;
+    --spring-dark: #2F714B;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--warm-white);
+    color: var(--spring-dark);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--spring-dark);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+  nav .logo {
+    font-family: 'Playfair Display', serif;
+    color: var(--sand);
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+  }
+  nav .logo span { color: var(--spring-yellow); }
+  .nav-links { display: flex; gap: 0.25rem; }
+  .nav-btn {
+    background: none; border: none; cursor: pointer;
+    color: rgba(242,232,217,0.6);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    transition: all 0.2s;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .nav-btn:hover, .nav-btn.active {
+    background: rgba(227,138,94,0.3);
+    color: var(--sand);
+  }
+
+  /* SECTIONS */
+  section {
+    display: none;
+    min-height: 100vh;
+    padding: 80px 0 4rem;
+  }
+  section.active { display: block; }
+
+  /* HERO */
+  #hero {
+    background: var(--warm-white);
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 0;
+  }
+
+  .hero-top-band {
+    background: var(--spring-dark);
+    padding: 5rem 2rem 3.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-top-band::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 15% 60%, rgba(242,206,126,0.18) 0%, transparent 55%),
+                radial-gradient(ellipse at 85% 20%, rgba(114,194,169,0.18) 0%, transparent 50%),
+                radial-gradient(ellipse at 60% 90%, rgba(217,90,77,0.12) 0%, transparent 45%);
+  }
+  .hero-color-bar {
+    display: flex; height: 6px;
+  }
+  .hero-color-bar span {
+    flex: 1;
+  }
+  .hero-color-bar span:nth-child(1) { background: var(--spring-yellow); }
+  .hero-color-bar span:nth-child(2) { background: var(--spring-orange); }
+  .hero-color-bar span:nth-child(3) { background: var(--spring-red); }
+  .hero-color-bar span:nth-child(4) { background: var(--spring-teal); }
+  .hero-color-bar span:nth-child(5) { background: var(--spring-green); }
+  .hero-color-bar span:nth-child(6) { background: var(--spring-dark); }
+
+  .hero-content {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .module-tag {
+    display: inline-block;
+    background: rgba(242,206,126,0.15);
+    border: 1px solid rgba(242,206,126,0.45);
+    color: var(--spring-yellow);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    color: var(--sand);
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+  }
+  .hero-title em { color: var(--spring-yellow); font-style: italic; }
+  .hero-subtitle {
+    font-size: 1rem;
+    color: rgba(253,245,238,0.7);
+    max-width: 580px;
+    margin: 0 auto 0;
+    line-height: 1.7;
+  }
+
+  /* HERO CARDS SECTION */
+  .hero-cards-section {
+    background: var(--warm-white);
+    padding: 2.5rem 2rem 4rem;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .hero-cards-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 1.25rem;
+    text-align: center;
+  }
+  .hero-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .hero-card {
+    border-radius: 14px;
+    padding: 1.5rem 1.25rem;
+    cursor: pointer;
+    transition: all 0.25s;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    border: none;
+  }
+  .hero-card::after {
+    content: '→';
+    position: absolute;
+    bottom: 1rem; right: 1rem;
+    font-size: 1rem;
+    opacity: 0;
+    transition: opacity 0.2s, transform 0.2s;
+    transform: translateX(-4px);
+  }
+  .hero-card:hover::after { opacity: 1; transform: translateX(0); }
+  .hero-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,0.13); }
+
+  .hero-card.c1 { background: var(--spring-yellow); color: #3A2800; }
+  .hero-card.c1::after { color: #3A2800; }
+  .hero-card.c2 { background: var(--spring-orange); color: #fff; }
+  .hero-card.c2::after { color: #fff; }
+  .hero-card.c3 { background: var(--spring-red); color: #fff; }
+  .hero-card.c3::after { color: #fff; }
+  .hero-card.c4 { background: var(--spring-teal); color: #fff; }
+  .hero-card.c4::after { color: #fff; }
+  .hero-card.c5 { background: var(--spring-green); color: #fff; }
+  .hero-card.c5::after { color: #fff; }
+  .hero-card.c6 { background: var(--spring-dark); color: #fff; }
+  .hero-card.c6::after { color: #fff; }
+
+  .hero-card .card-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    opacity: 0.55;
+    margin-bottom: 0.6rem;
+    display: block;
+    letter-spacing: 0.05em;
+  }
+  .hero-card .label {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    line-height: 1.3;
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+  .hero-card .card-desc {
+    font-size: 0.78rem;
+    opacity: 0.75;
+    line-height: 1.5;
+  }
+
+  /* CONTAINER */
+  .container { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* PAGE HEADER */
+  .page-header {
+    background: var(--spring-dark);
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--spring-orange), var(--spring-yellow), var(--spring-teal));
+  }
+  .page-header h1 {
+    font-family: 'Playfair Display', serif;
+    color: var(--sand);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    margin-bottom: 0.5rem;
+  }
+  .page-header p {
+    color: rgba(242,232,217,0.6);
+    font-size: 0.9rem;
+  }
+
+  /* CARDS */
+  .card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(0,0,0,0.06);
+    transition: box-shadow 0.3s;
+  }
+  .card:hover { box-shadow: 0 4px 30px rgba(0,0,0,0.1); }
+  .card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--spring-dark);
+    margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .card h2 .badge {
+    background: var(--spring-orange);
+    color: white;
+    font-size: 0.6rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .card p { color: #555; line-height: 1.75; font-size: 1rem; }
+
+  /* TESTIMONIO */
+  .quote-block {
+    background: linear-gradient(135deg, #FDF5EE, #FCE8D8);
+    border-left: 4px solid var(--spring-orange);
+    border-radius: 0 12px 12px 0;
+    padding: 1.5rem 1.5rem 1.5rem 2rem;
+    margin: 1rem 0;
+    font-style: italic;
+    color: var(--spring-dark);
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .lang-toggle {
+    display: flex; gap: 0.5rem; margin-bottom: 1rem;
+  }
+  .lang-btn {
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    border: 1.5px solid var(--terra);
+    background: none;
+    color: var(--spring-orange);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .lang-btn.active, .lang-btn:hover {
+    background: var(--spring-orange);
+    color: white;
+  }
+
+  .testimonio-text { display: none; }
+  .testimonio-text.active { display: block; }
+
+  /* REFLECTION BOX */
+  .reflection-box {
+    background: linear-gradient(135deg, #2F714B, #3A8A5C);
+    border-radius: 16px;
+    padding: 2rem;
+    color: var(--sand);
+    margin: 1.5rem 0;
+  }
+  .reflection-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--spring-yellow);
+    margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .reflection-box ul { list-style: none; }
+  .reflection-box ul li {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(242,232,217,0.1);
+    font-size: 0.95rem;
+    color: rgba(242,232,217,0.85);
+    line-height: 1.6;
+    display: flex; gap: 0.75rem; align-items: flex-start;
+  }
+  .reflection-box ul li::before { content: '→'; color: var(--spring-orange); flex-shrink: 0; margin-top: 2px; }
+  .reflection-box ul li:last-child { border-bottom: none; }
+
+  textarea.reflect-input {
+    width: 100%; margin-top: 1rem;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(242,232,217,0.2);
+    border-radius: 8px;
+    padding: 0.75rem;
+    color: var(--sand);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.92rem;
+    resize: vertical;
+    min-height: 80px;
+    outline: none;
+  }
+  textarea.reflect-input:focus { border-color: var(--spring-orange); }
+  textarea.reflect-input::placeholder { color: rgba(242,232,217,0.35); }
+
+  /* FRAMEWORK TABS */
+  .tab-bar {
+    display: flex; gap: 0.5rem; flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+  .tab-btn {
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    border: 1.5px solid #ddd;
+    background: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #666;
+  }
+  .tab-btn.active {
+    background: var(--spring-dark);
+    border-color: var(--spring-dark);
+    color: white;
+  }
+  .tab-btn:hover:not(.active) {
+    border-color: var(--spring-orange);
+    color: var(--spring-orange);
+  }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* TABLE */
+  .compare-table {
+    width: 100%; border-collapse: collapse; font-size: 0.9rem;
+  }
+  .compare-table th {
+    background: var(--spring-dark);
+    color: var(--sand);
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+  }
+  .compare-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+    line-height: 1.5;
+    color: #444;
+  }
+  .compare-table tr:hover td { background: #fafafa; }
+  .compare-table .col-1 { color: var(--spring-orange); font-weight: 600; }
+  .compare-table .col-2 { color: var(--spring-teal); font-weight: 600; }
+  .compare-table .col-3 { color: var(--spring-yellow); font-weight: 600; }
+
+  /* MINDFULNESS STEPS */
+  .mindfulness-steps { counter-reset: step; }
+  .step-item {
+    display: flex; gap: 1rem; align-items: flex-start;
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 0.75rem;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  .step-item.done {
+    background: #E8F7F3;
+    border-color: var(--spring-teal);
+  }
+  .step-num {
+    width: 36px; height: 36px; flex-shrink: 0;
+    background: var(--sand);
+    border: 2px solid var(--terra);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--spring-orange);
+    transition: all 0.3s;
+  }
+  .step-item.done .step-num {
+    background: var(--spring-teal);
+    border-color: var(--spring-teal);
+    color: white;
+  }
+  .step-body h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--spring-dark);
+    margin-bottom: 0.25rem;
+  }
+  .step-body p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+  }
+  .step-check {
+    margin-left: auto; flex-shrink: 0;
+    font-size: 1.2rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .step-item.done .step-check { opacity: 1; }
+
+  .breath-timer {
+    background: var(--spring-dark);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    margin: 1.5rem 0;
+  }
+  .breath-circle {
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(227,138,94,0.3), rgba(227,138,94,0.05));
+    border: 2px solid var(--spring-orange);
+    margin: 0 auto 1rem;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    color: var(--sand);
+    animation: none;
+    transition: all 0.3s;
+  }
+  @keyframes breatheIn {
+    0% { transform: scale(1); opacity: 0.7; }
+    100% { transform: scale(1.4); opacity: 1; }
+  }
+  @keyframes breatheOut {
+    0% { transform: scale(1.4); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.7; }
+  }
+  .breath-circle.inhale { animation: breatheIn 4s ease-in-out forwards; }
+  .breath-circle.exhale { animation: breatheOut 4s ease-in-out forwards; }
+  .breath-timer p { color: rgba(242,232,217,0.7); font-size: 0.9rem; margin-bottom: 1rem; }
+  .btn-primary {
+    background: var(--spring-orange);
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-primary:hover { background: #C87040; transform: translateY(-1px); }
+  .btn-secondary {
+    background: none;
+    color: var(--sand);
+    border: 1.5px solid rgba(242,232,217,0.3);
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.92rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-left: 0.5rem;
+  }
+  .btn-secondary:hover { border-color: var(--sand); }
+
+  /* SELF-ASSESSMENT */
+  .assessment-grid {
+    display: grid; gap: 1rem;
+  }
+  .assess-item {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 1.25rem;
+  }
+  .assess-item h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--spring-dark);
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+  }
+  .rating-row {
+    display: flex; gap: 0.5rem; flex-wrap: wrap;
+  }
+  .rating-opt {
+    flex: 1; min-width: 80px;
+    padding: 0.4rem 0.2rem;
+    text-align: center;
+    border: 1.5px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #666;
+    line-height: 1.3;
+  }
+  .rating-opt:hover { border-color: var(--spring-orange); color: var(--spring-orange); }
+  .rating-opt.selected {
+    background: var(--spring-orange);
+    border-color: var(--spring-orange);
+    color: white;
+  }
+  .score-display {
+    background: linear-gradient(135deg, var(--spring-dark), #3A8A5C);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    color: var(--sand);
+    margin-top: 1.5rem;
+  }
+  .score-big {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: var(--spring-yellow);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .score-label {
+    font-size: 0.88rem;
+    color: rgba(242,232,217,0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+  }
+  .score-bar-wrap {
+    background: rgba(255,255,255,0.1);
+    border-radius: 8px;
+    height: 8px;
+    overflow: hidden;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .score-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--spring-orange), var(--spring-yellow));
+  }
+
+  /* INTERSECTIONALITY */
+  .intersect-board {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .intersect-col {
+    border-radius: 12px;
+    padding: 1.25rem;
+    min-height: 200px;
+  }
+  .intersect-col.dominant {
+    background: linear-gradient(135deg, #E8F7F3, #D0EFE8);
+    border: 2px dashed var(--spring-teal);
+  }
+  .intersect-col.marginalized {
+    background: linear-gradient(135deg, #FDF0EE, #F8DDD9);
+    border: 2px dashed var(--spring-red);
+  }
+  .intersect-col h4 {
+    font-size: 0.86rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.4rem;
+  }
+  .intersect-col.dominant h4 { color: #1A5A3A; }
+  .intersect-col.marginalized h4 { color: #8A2A20; }
+  .identity-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; min-height: 40px; }
+  .id-tag {
+    background: white;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 20px;
+    padding: 0.3rem 0.7rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    cursor: grab;
+    transition: all 0.2s;
+    user-select: none;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+  .id-tag:hover { transform: scale(1.05); box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+  .id-tag.in-dominant { background: #D8F2EA; border-color: var(--spring-teal); color: #1A4A30; }
+  .id-tag.in-marginalized { background: #FAE8E6; border-color: var(--spring-red); color: #6A1A14; }
+  .identity-pool {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  .identity-pool h4 {
+    font-size: 0.86rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 0.75rem;
+  }
+
+  /* RESOURCES */
+  .resource-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .resource-card {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 1.25rem;
+    transition: all 0.2s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  .resource-card:hover {
+    border-color: var(--spring-orange);
+    box-shadow: 0 4px 20px rgba(196,98,45,0.1);
+    transform: translateY(-2px);
+  }
+
+  .resource-card h4 { font-size: 0.9rem; font-weight: 600; color: var(--spring-dark); margin-bottom: 0.25rem; }
+  .resource-card p { font-size: 0.86rem; color: #888; line-height: 1.5; }
+  .resource-card .r-tag {
+    display: inline-block;
+    background: var(--sand);
+    color: var(--clay);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* PROGRESS */
+  .progress-bar-top {
+    position: fixed; top: 60px; left: 0; right: 0;
+    height: 3px; z-index: 99;
+    background: rgba(255,255,255,0.1);
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--terra), var(--gold));
+    width: 0%;
+    transition: width 0.4s ease;
+  }
+
+  /* SCENARIO BOX */
+  .scenario-box {
+    background: linear-gradient(135deg, var(--sand), #EDE0CC);
+    border-radius: 16px;
+    padding: 2rem;
+    border-left: 5px solid var(--spring-orange);
+    margin: 1rem 0 1.5rem;
+  }
+  .scenario-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--spring-dark);
+    margin-bottom: 0.75rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .scenario-box p { font-size: 0.95rem; color: #4A3A2A; line-height: 1.75; }
+
+  /* PILL GRID */
+  .pill-grid {
+    display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0;
+  }
+  .pill {
+    background: var(--spring-teal); background: #E8F7F3;
+    border: 1px solid rgba(122,158,126,0.3);
+    color: #2A4A2A;
+    padding: 0.35rem 0.85rem;
+    border-radius: 20px;
+    font-size: 0.88rem;
+    font-weight: 500;
+  }
+
+  /* SECTION TRANSITIONS */
+  section { animation: fadeIn 0.3s ease; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    .hero-cards { grid-template-columns: 1fr; }
+    .resource-grid { grid-template-columns: 1fr; }
+    .intersect-board { grid-template-columns: 1fr; }
+    .nav-btn { font-size: 0.75rem; padding: 0.3rem 0.5rem; }
+  }
+
+  .section-content { padding: 2rem 0; }
+
+  .accordion-item {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+  }
+  .accordion-header {
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--spring-dark);
+    transition: background 0.2s;
+    user-select: none;
+  }
+  .accordion-header:hover { background: var(--sand); }
+  .accordion-header .arrow { transition: transform 0.3s; font-size: 0.82rem; color: var(--spring-orange); }
+  .accordion-header.open .arrow { transform: rotate(180deg); }
+  .accordion-body { display: none; padding: 0 1.25rem 1.25rem; font-size: 0.92rem; color: #555; line-height: 1.7; }
+  .accordion-body.open { display: block; }
+
+  .chip-do {
+    display: inline-block;
+    background: #D8F2EA; color: #1A5A3A;
+    border-radius: 4px; padding: 0.15rem 0.5rem;
+    font-size: 0.82rem; font-weight: 600; margin-right: 0.25rem;
+  }
+  .chip-dont {
+    display: inline-block;
+    background: #FAE8E6; color: #8A2A20;
+    border-radius: 4px; padding: 0.15rem 0.5rem;
+    font-size: 0.82rem; font-weight: 600; margin-right: 0.25rem;
+  }
+
+  .github-box {
+    background: #0D1117;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.88rem;
+    color: #C9D1D9;
+    position: relative;
+    overflow: auto;
+  }
+  .github-box .comment { color: #8B949E; }
+  .github-box .keyword { color: #FF7B72; }
+  .github-box .string { color: #A5D6FF; }
+  .github-box .cmd { color: #7EE787; }
+  .copy-btn {
+    position: absolute; top: 0.75rem; right: 0.75rem;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+    padding: 0.3rem 0.6rem;
+    color: #C9D1D9;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .copy-btn:hover { background: rgba(255,255,255,0.2); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Module <span>01</span> · Cultural Practice</div>
+  <div class="nav-links">
+    <button class="nav-btn active" onclick="showSection('hero')">Home</button>
+    <button class="nav-btn" onclick="showSection('testimonio')">Testimonio</button>
+    <button class="nav-btn" onclick="showSection('frameworks')">Frameworks</button>
+    <button class="nav-btn" onclick="showSection('plan')">Plan</button>
+    <button class="nav-btn" onclick="showSection('assessment')">Self-Check</button>
+    <button class="nav-btn" onclick="showSection('intersect')">Identities</button>
+    <button class="nav-btn" onclick="showSection('resources')">Resources</button>
+    
+  </div>
+</nav>
+
+<div class="progress-bar-top"><div class="progress-bar-fill" id="progressBar"></div></div>
+
+<!-- HERO -->
+<section id="hero" class="active">
+  <div class="hero-color-bar">
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <div class="hero-top-band">
+    <div class="hero-content">
+      <div class="module-tag">Module 1 · Early Intervention</div>
+      <h1 class="hero-title">The Cultural Continuum:<br><em>Humility, Responsiveness & Sustainment</em></h1>
+      <p class="hero-subtitle">An interactive learning module for early intervention providers working with culturally diverse families in the United States.</p>
+    </div>
+  </div>
+  <div class="hero-cards-section">
+    <p class="hero-cards-label">Explore the module</p>
+    <div class="hero-cards">
+      <div class="hero-card c1" onclick="showSection('testimonio')">
+        <span class="card-num">01</span>
+        <span class="label">Testimonio</span>
+        <span class="card-desc">A family's story of cultural disconnect in therapy</span>
+      </div>
+      <div class="hero-card c2" onclick="showSection('frameworks')">
+        <span class="card-num">02</span>
+        <span class="label">Frameworks</span>
+        <span class="card-desc">Humility, responsiveness & sustainment defined</span>
+      </div>
+      <div class="hero-card c3" onclick="showSection('plan')">
+        <span class="card-num">03</span>
+        <span class="label">Mindful Plan</span>
+        <span class="card-desc">Scenario-based mindfulness for intervention planning</span>
+      </div>
+      <div class="hero-card c4" onclick="showSection('assessment')">
+        <span class="card-num">04</span>
+        <span class="label">Self-Check</span>
+        <span class="card-desc">Cultural competence self-assessment checklist</span>
+      </div>
+      <div class="hero-card c5" onclick="showSection('intersect')">
+        <span class="card-num">05</span>
+        <span class="label">Identities</span>
+        <span class="card-desc">Map your intersectional axes of privilege & power</span>
+      </div>
+      <div class="hero-card c6" onclick="showSection('resources')">
+        <span class="card-num">06</span>
+        <span class="label">Resources</span>
+        <span class="card-desc">Articles, tools & supplementary materials</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIO -->
+<section id="testimonio">
+  <div class="page-header">
+    <h1>Testimonio de Miguel</h1>
+    <p>A family's experience with cultural disconnect in therapy</p>
+  </div>
+  <div class="container section-content">
+    <div class="card">
+      <div class="lang-toggle">
+        <button class="lang-btn active" onclick="switchLang('en', this)">English</button>
+        <button class="lang-btn" onclick="switchLang('es', this)">Español</button>
+      </div>
+
+      <div class="testimonio-text active" id="lang-en">
+        <p style="font-size:0.88rem;color:#666;margin-bottom:1rem;"><em>Watch the video at the top of your module for Miguel's full story.</em></p>
+        <p style="font-size:0.92rem;color:#444;line-height:1.8;margin-bottom:1rem;">When I first brought my son Miguel to therapy, I had hoped it would be a healing space—a place where he could feel understood and supported. Instead, I found myself facing a painful encounter that left me feeling dismissed and misunderstood.</p>
+        <div class="quote-block">"Do you think your parenting style might be contributing to Miguel's anxiety?"</div>
+        <p style="font-size:0.92rem;color:#444;line-height:1.8;margin-bottom:1rem;">The way she spoke suggested that our approach as a family—with its emphasis on close-knit relationships, respect for elders, and emotional expressiveness—was something to be examined rather than understood.</p>
+        <p style="font-size:0.92rem;color:#444;line-height:1.8;margin-bottom:1rem;">The breaking point came when she suggested Miguel might benefit from <strong>"more independence"</strong>—a concept that felt entirely foreign to our family's values. In our culture, family support isn't a sign of weakness or over-dependence. It's a source of strength, a beautiful web of relationships that sustains us through difficult times.</p>
+        <p style="font-size:0.92rem;color:#444;line-height:1.8;">What Dr. Thompson failed to understand was that <em>cultural context isn't just background noise. It's the melody of our lives, the rhythm that gives meaning to our experiences.</em></p>
+      </div>
+
+      <div class="testimonio-text" id="lang-es">
+        <p style="font-size:0.88rem;color:#666;margin-bottom:1rem;"><em>Vea el video al inicio de su módulo para la historia completa de Miguel.</em></p>
+        <p style="font-size:0.92rem;color:#444;line-height:1.8;margin-bottom:1rem;">Cuando llevé a mi hijo Miguel a terapia por primera vez, lo hice con la esperanza de que encontráramos un lugar donde él pudiera sentirse escuchado, acompañado y comprendido.</p>
+        <div class="quote-block">"¿Cree que su estilo de crianza puede estar causando la ansiedad de Miguel?"</div>
+        <p style="font-size:0.92rem;color:#444;line-height:1.8;margin-bottom:1rem;">Para ella, parecía que el hecho de que seamos una familia muy unida, que valoremos el respeto por los mayores y que expresemos nuestras emociones abiertamente, era algo que debía analizarse o corregirse, en lugar de entenderse.</p>
+        <p style="font-size:0.92rem;color:#444;line-height:1.8;">Lo que la Dra. Thompson no supo ver es que nuestra cultura no es un detalle menor ni un simple fondo. <em>Es el corazón de nuestra historia, el ritmo que le da sentido a lo que somos.</em></p>
+      </div>
+    </div>
+
+    <div class="reflection-box">
+      <h3>Personal Reflection Prompt</h3>
+      <ul>
+        <li>When have I criticized a parent's parenting style or cultural practice?</li>
+        <li>Have I ever dismissed a family value as "not important"?</li>
+        <li>What assumptions did I bring into my last home visit or session?</li>
+      </ul>
+      <textarea class="reflect-input" placeholder="Write your reflections here (private to you)..."></textarea>
+    </div>
+  </div>
+</section>
+
+<!-- FRAMEWORKS -->
+<section id="frameworks">
+  <div class="page-header">
+    <h1>Cultural Frameworks</h1>
+    <p>Humility · Responsiveness · Sustainment</p>
+  </div>
+  <div class="container section-content">
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="switchTab('humility', this)">Cultural Humility</button>
+      <button class="tab-btn" onclick="switchTab('responsiveness', this)">Cultural Responsiveness</button>
+      <button class="tab-btn" onclick="switchTab('sustainment', this)">Cultural Sustainment</button>
+      <button class="tab-btn" onclick="switchTab('compare', this)">Compare All</button>
+      <button class="tab-btn" onclick="switchTab('action', this)">Action Steps</button>
+    </div>
+
+    <div class="tab-panel active" id="tab-humility">
+      <div class="card">
+        <h2>Cultural Humility <span class="badge">Lifelong Process</span></h2>
+        <p>A lifelong process of self-critique and self-awareness wherein providers recognize their own cultural biases and power dynamics inherent in professional relationships. It involves an ongoing commitment to learning from clients and communities while acknowledging that cultural knowledge is never complete or static.</p>
+        <div style="margin-top:1.25rem;">
+          <div class="pill-grid">
+            <span class="pill">Self-awareness & reflection</span>
+            <span class="pill">Recognition of power imbalances</span>
+            <span class="pill">Commitment to lifelong learning</span>
+            <span class="pill">Client-centered approach</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Independence: A Case Study</h2>
+        <table class="compare-table">
+          <tr><th>Perspective</th><th>View of Independence</th></tr>
+          <tr><td class="col-1">Practitioner</td><td>Positive developmental skill children should develop early</td></tr>
+          <tr><td class="col-2">Family (interdependent culture)</td><td>Values interdependence; independence may signal problems or depression</td></tr>
+        </table>
+        <p style="margin-top:1rem;font-size:0.82rem;color:#888;">Cultural humility invites us to explore <em>why</em> we hold these views—not to judge one as superior.</p>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-responsiveness">
+      <div class="card">
+        <h2>Cultural Responsiveness <span class="badge">Adaptive Practice</span></h2>
+        <p>The ability to adapt practices, policies, and services to align with the cultural beliefs, values, and practices of the individuals and communities being served. Cultural responsiveness involves modifying existing interventions and approaches to better fit cultural contexts while maintaining program effectiveness.</p>
+        <div style="margin-top:1.25rem;">
+          <div class="pill-grid">
+            <span class="pill">Adaptation of existing practices</span>
+            <span class="pill">Integration of cultural values</span>
+            <span class="pill">Flexible implementation</span>
+            <span class="pill">Culturally informed assessment</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-sustainment">
+      <div class="card">
+        <h2>Cultural Sustainment <span class="badge">Systemic Change</span></h2>
+        <p>The systematic integration and preservation of cultural practices, values, and worldviews within service delivery systems. Cultural sustainment goes beyond adaptation to ensure that cultural elements are not merely added on but are fundamentally woven into the fabric of programs and maintained over time.</p>
+        <div style="margin-top:1.25rem;">
+          <div class="pill-grid">
+            <span class="pill">Long-term integration</span>
+            <span class="pill">Preservation of traditional practices</span>
+            <span class="pill">Community ownership & leadership</span>
+            <span class="pill">Structural changes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-compare">
+      <div class="card">
+        <h2>Side-by-Side Comparison</h2>
+        <table class="compare-table">
+          <tr>
+            <th>Aspect</th>
+            <th class="col-1">Cultural Humility</th>
+            <th class="col-2">Cultural Responsiveness</th>
+            <th class="col-3">Cultural Sustainment</th>
+          </tr>
+          <tr>
+            <td><strong>Primary Focus</strong></td>
+            <td>Provider self-awareness & power dynamics</td>
+            <td>Adapting services to cultural needs</td>
+            <td>Preserving & integrating culture systemically</td>
+          </tr>
+          <tr>
+            <td><strong>Time Frame</strong></td>
+            <td>Ongoing, lifelong</td>
+            <td>Project/service-specific</td>
+            <td>Long-term, generational</td>
+          </tr>
+          <tr>
+            <td><strong>Level of Change</strong></td>
+            <td>Individual provider mindset</td>
+            <td>Program/service modification</td>
+            <td>Systemic/structural transformation</td>
+          </tr>
+          <tr>
+            <td><strong>Direction of Learning</strong></td>
+            <td>Provider learns from client</td>
+            <td>Bidirectional adaptation</td>
+            <td>Community & social justice driven</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-action">
+      <div class="card">
+        <h2>Cultural Humility Action Steps</h2>
+        <div style="margin-bottom:1rem;">
+          <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+              Phase 1: Acknowledge & Explore — Listen First
+              <span class="arrow">▼</span>
+            </div>
+            <div class="accordion-body">
+              <p><span class="chip-do">DO</span> Ask families to explain their understanding of independence. Use open-ended questions. Allow time for full explanation.</p>
+              <p style="margin-top:0.5rem;"><span class="chip-dont">AVOID</span> Making assumptions about resistance. Dismissing family values. Rushing to solutions.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+              Phase 1: Acknowledge & Explore — Clarify Values
+              <span class="arrow">▼</span>
+            </div>
+            <div class="accordion-body">
+              <p><span class="chip-do">DO</span> Explore family's cultural framework. Ask about interdependence practices. Understand family structure and roles.</p>
+              <p style="margin-top:0.5rem;"><span class="chip-dont">AVOID</span> Assuming one-size-fits-all definitions. Interpreting differences as deficits.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+              Phase 2: Find Common Ground — Shared Goals
+              <span class="arrow">▼</span>
+            </div>
+            <div class="accordion-body">
+              <p><span class="chip-do">DO</span> Look for underlying skills both value. Discuss self-advocacy, confidence, problem-solving. Focus on child's wellbeing.</p>
+              <p style="margin-top:0.5rem;"><span class="chip-dont">AVOID</span> Forcing practitioner agenda. Ignoring family priorities.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+              Phase 3: Bridge Perspectives — Reframe Goals
+              <span class="arrow">▼</span>
+            </div>
+            <div class="accordion-body">
+              <p><span class="chip-do">DO</span> Present skills as enhancing family contribution. Show how abilities support interdependence. Connect to family values.</p>
+              <p style="margin-top:0.5rem;"><span class="chip-dont">AVOID</span> Abandoning professional knowledge. Creating false dichotomies.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+              Ongoing Practice: Self-Reflection & Power Awareness
+              <span class="arrow">▼</span>
+            </div>
+            <div class="accordion-body">
+              <p><span class="chip-do">DO</span> Examine your bias toward independence. Acknowledge professional privilege. Recognize pressure on families. Share decision-making.</p>
+              <p style="margin-top:0.5rem;"><span class="chip-dont">AVOID</span> Assuming cultural neutrality. Becoming defensive. Minimizing power dynamics.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLAN -->
+<section id="plan">
+  <div class="page-header">
+    <h1>Mindful Intervention Planning</h1>
+    <p>Scenario-based practice with mindfulness integration</p>
+  </div>
+  <div class="container section-content">
+    <div class="scenario-box">
+      <h3>Scenario</h3>
+      <p>You are an early intervention provider working on an intervention plan with a <strong>bilingual family</strong> who lives in the U.S. Monday–Friday and travels to Mexico every weekend to spend time with their family. This family comes from a different racial and ethnic background than yourself. You are working quickly as this family has been waiting for intervention for <strong>9 months</strong> already.</p>
+    </div>
+
+    <div class="card">
+      <h2>Mindfulness Practice <span class="badge">Sequential Steps</span></h2>
+      <p style="margin-bottom:1rem;font-size:0.85rem;color:#666;">Click each step to mark it complete as you practice.</p>
+
+      <div class="breath-timer" id="breathTimer">
+        <p>Click "Begin Breathing" to start a guided breath cycle</p>
+        <div class="breath-circle" id="breathCircle">Begin</div>
+        <div>
+          <button class="btn-primary" onclick="startBreath()">Begin Breathing</button>
+          <button class="btn-secondary" onclick="stopBreath()">Stop</button>
+        </div>
+      </div>
+
+      <div class="mindfulness-steps" id="mindSteps">
+        <div class="step-item" onclick="toggleStep(this)">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>Intentional Pause</h4>
+            <p>Stop what you are doing. Set aside the paperwork, the plan, the timeline. Just pause.</p>
+          </div>
+          <div class="step-check">✓</div>
+        </div>
+        <div class="step-item" onclick="toggleStep(this)">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>Slow Deep Breaths</h4>
+            <p>Take a few slow deep breaths, bringing awareness to the sensations of breathing in and out.</p>
+          </div>
+          <div class="step-check">✓</div>
+        </div>
+        <div class="step-item" onclick="toggleStep(this)">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h4>Perspective-Taking</h4>
+            <p>Reflect on what it might be like to be one of the parents receiving early intervention for the first time in their home from a provider who does not speak their language fluently. Consider how their lives differ from yours, and how participation in early intervention adds burden to already stressful lives.</p>
+          </div>
+          <div class="step-check">✓</div>
+        </div>
+        <div class="step-item" onclick="toggleStep(this)">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h4>Tune In to Your Body</h4>
+            <p>Notice how your body feels — is your heart beating fast? Are your shoulders tense? What thoughts arise? Is the intervention program sensitive to these individuals? What emotions are present — anxiety, worry?</p>
+          </div>
+          <div class="step-check">✓</div>
+        </div>
+        <div class="step-item" onclick="toggleStep(this)">
+          <div class="step-num">5</div>
+          <div class="step-body">
+            <h4>More Mindful Breaths</h4>
+            <p>Take a few more slow breaths with awareness before continuing.</p>
+          </div>
+          <div class="step-check">✓</div>
+        </div>
+        <div class="step-item" onclick="toggleStep(this)">
+          <div class="step-num">6</div>
+          <div class="step-body">
+            <h4>Reflect on Specific Circumstances</h4>
+            <p>Consider specific issues that Spanish-speaking immigrant families face: living and working environments, transnational family life, documentation status, access to services, language barriers, and social isolation.</p>
+          </div>
+          <div class="step-check">✓</div>
+        </div>
+        <div class="step-item" onclick="toggleStep(this)">
+          <div class="step-num">7</div>
+          <div class="step-body">
+            <h4>Again, Mindful Breaths</h4>
+            <p>Take a few more mindful breaths to integrate your reflections.</p>
+          </div>
+          <div class="step-check">✓</div>
+        </div>
+        <div class="step-item" onclick="toggleStep(this)">
+          <div class="step-num">8</div>
+          <div class="step-body">
+            <h4>Proceed with Clarity & Kindness</h4>
+            <p>Now write the intervention plan with a greater sense of clarity and kindness toward the marginalized population you're working with.</p>
+          </div>
+          <div class="step-check">✓</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reflection-box">
+      <h3>Reflection Questions for the Plan</h3>
+      <ul>
+        <li>What privileges do I hold as a coach, and how are these different from those of the family?</li>
+        <li>How can I sustain practices that respect and honor the family's cultural values?</li>
+        <li>What values does the family prioritize in this case?</li>
+        <li>How do my own values and experiences influence the way I view this family's situation?</li>
+        <li>What values are being prioritized in the intervention I am using?</li>
+        <li>Where might there be tension between the intervention's priorities and the family's priorities?</li>
+        <li>What strategies can I use to bridge differences between intervention values and family values?</li>
+      </ul>
+      <textarea class="reflect-input" placeholder="Your reflections on the intervention plan scenario..."></textarea>
+    </div>
+  </div>
+</section>
+
+<!-- SELF-ASSESSMENT -->
+<section id="assessment">
+  <div class="page-header">
+    <h1>Cultural Competence Self-Assessment</h1>
+    <p>Adapted from the Central Vancouver Island Multicultural Society</p>
+  </div>
+  <div class="container section-content">
+    <div class="card">
+      <p style="font-size:0.85rem;color:#666;margin-bottom:1.5rem;">Rate each item honestly. This is not a test — it's a tool to identify areas of strength and growth. <strong>Never=1pt, Sometimes=2pts, Fairly Often=3pts, Always=4pts</strong></p>
+
+      <div class="assessment-grid" id="assessmentGrid"></div>
+
+      <div class="score-display" id="scoreDisplay">
+        <div class="score-label">Your Cultural Competence Score</div>
+        <div class="score-big" id="scoreNum">—</div>
+        <div class="score-label">out of <span id="scoreMax">—</span></div>
+        <div class="score-bar-wrap"><div class="score-bar" id="scoreBarFill"></div></div>
+        <p style="margin-top:1rem;font-size:0.8rem;color:rgba(242,232,217,0.6);">Complete all items to see your score</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERSECTIONALITY -->
+<section id="intersect">
+  <div class="page-header">
+    <h1>Intersectional Identity Mapping</h1>
+    <p>Based on Kimberlé Crenshaw's intersectionality framework (1989, 1991)</p>
+  </div>
+  <div class="container section-content">
+    <div class="card">
+      <h2>Activity Instructions</h2>
+      <p>Select the identity markers that represent <strong>you</strong>, then drag or click to sort them into Dominant/Privileged or Marginalized/Oppressed categories based on how they typically function in contemporary systems of power. Then repeat for the family in the scenario.</p>
+    </div>
+
+    <div style="display:flex;gap:0.75rem;margin-bottom:1rem;">
+      <button class="tab-btn active" onclick="switchIdentityView('self', this)">My Identities</button>
+      <button class="tab-btn" onclick="switchIdentityView('family', this)">Family's Identities</button>
+    </div>
+
+    <div id="identityView-self">
+      <div class="identity-pool">
+        <h4>Identity Pool — click to add</h4>
+        <div class="identity-tags" id="pool-self"></div>
+      </div>
+      <div class="intersect-board">
+        <div class="intersect-col dominant">
+          <h4>Dominant / Privileged</h4>
+          <div class="identity-tags" id="dominant-self"></div>
+        </div>
+        <div class="intersect-col marginalized">
+          <h4>Marginalized / Oppressed</h4>
+          <div class="identity-tags" id="marginalized-self"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="identityView-family" style="display:none;">
+      <div class="identity-pool">
+        <h4>Identity Pool — click to add</h4>
+        <div class="identity-tags" id="pool-family"></div>
+      </div>
+      <div class="intersect-board">
+        <div class="intersect-col dominant">
+          <h4>Dominant / Privileged</h4>
+          <div class="identity-tags" id="dominant-family"></div>
+        </div>
+        <div class="intersect-col marginalized">
+          <h4>Marginalized / Oppressed</h4>
+          <div class="identity-tags" id="marginalized-family"></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:1rem;">
+      <button class="btn-primary" onclick="resetIdentities(currentIdentityView)">Reset This View</button>
+    </div>
+
+    <div class="reflection-box" style="margin-top:1.5rem;">
+      <h3>After Mapping: Reflection</h3>
+      <ul>
+        <li>What do you notice when you compare your map to the family's?</li>
+        <li>Where are the most significant differences in privilege and power?</li>
+        <li>How might these differences shape your interactions and assumptions?</li>
+      </ul>
+      <textarea class="reflect-input" placeholder="Your intersectionality reflections..."></textarea>
+    </div>
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section id="resources">
+  <div class="page-header">
+    <h1>Additional Resources</h1>
+    <p>Module 1 supplementary materials</p>
+  </div>
+  <div class="container section-content">
+    <div class="resource-grid">
+      <a class="resource-card" href="https://www.canva.com/design/DAGtQQq6BE8/0EP0XgDd12oonqAJ9UfM7w/watch" target="_blank">
+        <h4>Module 1 Video</h4>
+        <p>Watch the introductory video for this module on Canva.</p>
+        <span class="r-tag">Video</span>
+      </a>
+      <a class="resource-card" href="#" onclick="showSection('assessment')">
+        <h4>Personal Cultural Inventory</h4>
+        <p>Cultural competence self-assessment checklist (Central Vancouver Island Multicultural Society).</p>
+        <span class="r-tag">Self-Assessment</span>
+      </a>
+      <a class="resource-card" href="#" onclick="showSection('plan')">
+        <h4>Self-Reflection Check-In</h4>
+        <p>Guided reflection questions for the intervention planning scenario.</p>
+        <span class="r-tag">Reflection</span>
+      </a>
+      <a class="resource-card" href="#" onclick="showSection('frameworks')">
+        <h4>Culturally Responsive Practice Check-In</h4>
+        <p>Review action steps and the Cultural Humility framework in depth.</p>
+        <span class="r-tag">Practice</span>
+      </a>
+      <a class="resource-card" href="https://doi.org/10.1016/j.apnr.2013.06.008" target="_blank">
+        <h4>Cultural Humility in Clinical Research</h4>
+        <p>Yeager & Bauer-Wu (2013). Applied Nursing Research, 26(4), 251–256.</p>
+        <span class="r-tag">Journal Article</span>
+      </a>
+      <div class="resource-card">
+        <h4>Harry, B. (1992)</h4>
+        <p>Cultural diversity, families and the special education system: Communication and empowerment. Teachers College Press.</p>
+        <span class="r-tag">Book</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<script>
+// NAV
+function showSection(id) {
+  document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  const navBtns = document.querySelectorAll('.nav-btn');
+  navBtns.forEach(b => { if (b.onclick && b.onclick.toString().includes(id)) b.classList.add('active'); });
+  window.scrollTo(0,0);
+}
+
+// LANG TOGGLE
+function switchLang(lang, btn) {
+  document.querySelectorAll('.testimonio-text').forEach(t => t.classList.remove('active'));
+  document.getElementById('lang-' + lang).classList.add('active');
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// TABS
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.closest('.tab-bar').querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// ACCORDION
+function toggleAccordion(header) {
+  header.classList.toggle('open');
+  const body = header.nextElementSibling;
+  body.classList.toggle('open');
+}
+
+// MINDFULNESS STEPS
+function toggleStep(item) {
+  item.classList.toggle('done');
+  updateProgress();
+}
+
+function updateProgress() {
+  const total = document.querySelectorAll('.step-item').length;
+  const done = document.querySelectorAll('.step-item.done').length;
+  document.getElementById('progressBar').style.width = ((done/total)*100) + '%';
+}
+
+// BREATH TIMER
+let breathInterval;
+let breathState = 'idle';
+function startBreath() {
+  clearInterval(breathInterval);
+  const circle = document.getElementById('breathCircle');
+  function cycle() {
+    circle.className = 'breath-circle inhale';
+    circle.textContent = 'Breathe In';
+    setTimeout(() => {
+      circle.className = 'breath-circle exhale';
+      circle.textContent = 'Breathe Out';
+    }, 4000);
+  }
+  cycle();
+  breathInterval = setInterval(cycle, 8500);
+}
+function stopBreath() {
+  clearInterval(breathInterval);
+  const circle = document.getElementById('breathCircle');
+  circle.className = 'breath-circle';
+  circle.textContent = 'Begin';
+}
+
+// ASSESSMENT
+const assessItems = [
+  // Awareness
+  { cat: 'Awareness', q: 'I view human difference as positive and a cause for celebration.' },
+  { cat: 'Awareness', q: 'I have a clear sense of my own ethnic, cultural and racial identity.' },
+  { cat: 'Awareness', q: 'I am aware of my discomfort when I encounter differences in race, colour, religion, sexual orientation, language, and ethnicity.' },
+  { cat: 'Awareness', q: 'I am aware of the assumptions that I hold about people of cultures different from my own.' },
+  { cat: 'Awareness', q: 'I am aware of my stereotypes as they arise and have developed personal strategies for reducing the harm they cause.' },
+  { cat: 'Awareness', q: 'I am aware of how my cultural perspective influences my judgement about what are "appropriate," "normal," or "superior" behaviours.' },
+  // Knowledge
+  { cat: 'Knowledge', q: 'I will make mistakes and will learn from them.' },
+  { cat: 'Knowledge', q: 'I recognize that my knowledge of certain cultural groups is limited and commit to learning more.' },
+  { cat: 'Knowledge', q: 'I know that differences in colour, culture, ethnicity are important parts of individual identity. I will not hide behind "colour blindness".' },
+  { cat: 'Knowledge', q: 'I recognize that cultures change over time and can vary from person to person, as does attachment to culture.' },
+  { cat: 'Knowledge', q: 'I recognize that stereotypical attitudes and discriminatory actions can dehumanize individuals.' },
+  // Skills
+  { cat: 'Skills', q: 'I am developing ways to interact respectfully and effectively with individuals and groups from diverse backgrounds.' },
+  { cat: 'Skills', q: 'I can effectively intervene when I observe others behaving in racist or discriminatory ways.' },
+  { cat: 'Skills', q: 'I am able to adapt my communication style to work with people who communicate differently.' },
+  { cat: 'Skills', q: 'I can act in ways that demonstrate respect for the culture and beliefs of others.' },
+  { cat: 'Skills', q: 'I work hard to understand the perspectives of others and consult with diverse colleagues about culturally respectful actions.' },
+];
+
+const ratings = ['Never', 'Sometimes', 'Fairly Often', 'Always'];
+const scores = {};
+
+function buildAssessment() {
+  const grid = document.getElementById('assessmentGrid');
+  let currentCat = '';
+  assessItems.forEach((item, idx) => {
+    if (item.cat !== currentCat) {
+      currentCat = item.cat;
+      const header = document.createElement('h3');
+      header.style.cssText = 'font-family:Playfair Display,serif;font-size:1.1rem;color:var(--deep);margin:1.25rem 0 0.5rem;';
+      header.textContent = currentCat;
+      grid.appendChild(header);
+    }
+    const div = document.createElement('div');
+    div.className = 'assess-item';
+    div.innerHTML = `<h4>${item.q}</h4><div class="rating-row">` +
+      ratings.map((r, ri) => `<button class="rating-opt" data-idx="${idx}" data-val="${ri+1}" onclick="selectRating(this,${idx},${ri+1})">${r}</button>`).join('') +
+      '</div>';
+    grid.appendChild(div);
+  });
+}
+
+function selectRating(btn, idx, val) {
+  const row = btn.closest('.rating-row');
+  row.querySelectorAll('.rating-opt').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  scores[idx] = val;
+  updateScore();
+}
+
+function updateScore() {
+  const answered = Object.keys(scores).length;
+  const total = assessItems.length;
+  const maxScore = total * 4;
+  const current = Object.values(scores).reduce((a,b)=>a+b,0);
+  if (answered === total) {
+    document.getElementById('scoreNum').textContent = current;
+    document.getElementById('scoreMax').textContent = maxScore;
+    document.getElementById('scoreBarFill').style.width = ((current/maxScore)*100) + '%';
+  }
+}
+
+buildAssessment();
+
+// INTERSECTIONALITY
+const identityOptions = [
+  'White / European descent','Person of Color','Black / African descent','Indigenous / Native','Latino/a/x','Asian / Pacific Islander',
+  'Middle Eastern','Biracial / Multiracial','U.S.-born','Immigrant','Undocumented','English speaker (native)',
+  'Bilingual','Non-English speaker','Cisgender','Transgender / Non-binary','Heterosexual','LGBTQ+',
+  'Man','Woman','Non-binary','Able-bodied','Disability','Neurotypical','Neurodivergent',
+  'Upper class','Middle class','Working class','Low income / Poverty','College educated','First-generation student',
+  'Christian','Muslim','Jewish','Hindu','Buddhist','Agnostic/Atheist','Other faith',
+  'Urban','Rural','U.S. citizen','Documented non-citizen','Veteran','Healthcare access',
+  'Homeowner','Renter','Young adult','Middle-aged','Elder','Child'
+];
+
+let currentIdentityView = 'self';
+const identityState = {
+  'self': { pool: [...identityOptions], dominant: [], marginalized: [] },
+  'family': { pool: [...identityOptions], dominant: [], marginalized: [] }
+};
+
+function renderIdentities(view) {
+  const state = identityState[view];
+  renderPool(`pool-${view}`, state.pool, view);
+  renderSlot(`dominant-${view}`, state.dominant, view, 'dominant');
+  renderSlot(`marginalized-${view}`, state.marginalized, view, 'marginalized');
+}
+
+function renderPool(containerId, items, view) {
+  const el = document.getElementById(containerId);
+  el.innerHTML = '';
+  items.forEach(item => {
+    const tag = document.createElement('span');
+    tag.className = 'id-tag';
+    tag.textContent = item;
+    tag.onclick = () => moveToMenu(item, view);
+    el.appendChild(tag);
+  });
+}
+
+function renderSlot(containerId, items, view, slot) {
+  const el = document.getElementById(containerId);
+  el.innerHTML = '';
+  items.forEach(item => {
+    const tag = document.createElement('span');
+    tag.className = 'id-tag ' + (slot === 'dominant' ? 'in-dominant' : 'in-marginalized');
+    tag.textContent = item + ' ×';
+    tag.onclick = () => returnToPool(item, view, slot);
+    el.appendChild(tag);
+  });
+}
+
+function moveToMenu(item, view) {
+  const menu = document.createElement('div');
+  menu.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:white;border-radius:12px;padding:1.5rem;box-shadow:0 8px 40px rgba(0,0,0,0.2);z-index:999;text-align:center;min-width:240px;';
+  menu.innerHTML = `<p style="font-weight:600;margin-bottom:1rem;font-size:0.9rem;">"${item}"</p>
+    <p style="font-size:0.8rem;color:#666;margin-bottom:1rem;">Where does this identity typically sit in systems of power?</p>
+    <button onclick="assignIdentity('${item}','${view}','dominant',this.closest('div'))" style="background:var(--spring-teal);color:white;border:none;padding:0.5rem 1rem;border-radius:6px;cursor:pointer;font-size:0.82rem;margin-right:0.5rem;">Dominant</button>
+    <button onclick="assignIdentity('${item}','${view}','marginalized',this.closest('div'))" style="background:var(--spring-red);color:white;border:none;padding:0.5rem 1rem;border-radius:6px;cursor:pointer;font-size:0.82rem;margin-right:0.5rem;">Marginalized</button>
+    <button onclick="this.closest('div').remove()" style="background:#eee;color:#333;border:none;padding:0.5rem 1rem;border-radius:6px;cursor:pointer;font-size:0.82rem;">Cancel</button>`;
+  document.body.appendChild(menu);
+}
+
+function assignIdentity(item, view, slot, menu) {
+  menu.remove();
+  const state = identityState[view];
+  state.pool = state.pool.filter(i => i !== item);
+  state[slot].push(item);
+  renderIdentities(view);
+}
+
+function returnToPool(item, view, slot) {
+  const state = identityState[view];
+  state[slot] = state[slot].filter(i => i !== item);
+  state.pool.push(item);
+  renderIdentities(view);
+}
+
+function resetIdentities(view) {
+  identityState[view] = { pool: [...identityOptions], dominant: [], marginalized: [] };
+  renderIdentities(view);
+}
+
+function switchIdentityView(view, btn) {
+  currentIdentityView = view;
+  document.getElementById('identityView-self').style.display = view === 'self' ? 'block' : 'none';
+  document.getElementById('identityView-family').style.display = view === 'family' ? 'block' : 'none';
+  btn.closest('div').querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+renderIdentities('self');
+renderIdentities('family');
+
+// COPY CODE
+function copyCode(btn) {
+  const box = btn.nextSibling;
+  const text = box.parentElement.innerText.replace('Copy','').trim();
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'Copied!';
+    setTimeout(() => btn.textContent = 'Copy', 2000);
+  });
+}
+</script>
+</body>
+</html>
